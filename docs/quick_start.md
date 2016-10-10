@@ -25,7 +25,9 @@ Requerimentos:
 4º - Configurar arquivo `server/dbconfig.js`:
     
     - Adicionar os dados para conecção no banco de dados.
+
+5º - Rodar queries: [aplication-sql](https://github.com/marcosalm/RealtimeApp/blob/master/docs/aplication_sqls.md)
     
-5º - Para rodar a aplicação:
+6º - Para rodar a aplicação:
     
     - npm start

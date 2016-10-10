@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="realtimeOracle" ng-controller="appCtrl">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title ng-bind="pageTitle"></title>
+    <link href="/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/employees/employees.css" rel="stylesheet">
+    <link href="/employee-details/employee-details.css" rel="stylesheet">
+</head>
+<body>
+    <div ui-view="main"></div>
+
+    <script src="/vendor/socket.io-client/socket.io.js"></script>
+    <script src="/vendor/angular/angular.js"></script>
+    <script src="/vendor/angular-messages/angular-messages.js"></script>
+    <script src="/vendor/ui-route/release/angular-ui-router.js"></script>
+    <script src="/app.js"></script>
+    <script src="/shared/util.js"></script>
+    <script src="/employees/employees.js"></script>
+    <script src="/employee-details/employee-details.js"></script>
+</body>
+</html>

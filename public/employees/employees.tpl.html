@@ -1,0 +1,43 @@
+<div class="employees-page container">
+    <div class="jumbotron">
+        <h1>Employees</h1>
+        <h3>A Continuous Query Notification Demo</h3>
+        <p>This is a proof of concept that demonstrates how Socket.io and Node.js can be combined with the Continuous
+            Query Notification feature of Oracle Database to push changes to data from the database to the client in
+            real time. Open the application in multiple browsers and watch as changes to employee data made in one
+            browser are immediately reflected in the other.</p>
+    </div>
+    <div ng-show="employeesCtrl.message === 'EMPLOYEE_CREATED'" class="alert alert-success" role="alert">The employee was successfully created.</div>
+    <div ng-show="employeesCtrl.message === 'EMPLOYEE_SAVED'" class="alert alert-success" role="alert">The employee was successfully saved.</div>
+    <div ng-show="employeesCtrl.message === 'EMPLOYEE_DELETED'" class="alert alert-success" role="alert">The employee was successfully deleted.</div>
+    <div class="page-header">
+        <h1>Employees</h1>
+        <a class="btn btn-primary pull-right" ui-sref="employee-details" role="button">
+            <span class="glyphicon glyphicon-plus"></span> Create Employee
+        </a>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>&nbsp;</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Hire Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="emp in employeesCtrl.employees">
+            <td>
+                <a class="btn btn-default" ui-sref="employee-details({ employee_id: emp.EMPLOYEE_ID })" role="button">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </a>
+            </td>
+            <td>{{emp.FIRST_NAME}}</td>
+            <td>{{emp.LAST_NAME}}</td>
+            <td>{{emp.PHONE_NUMBER}}</td>
+            <td>{{emp.HIRE_DATE | date:'yyyy-MM-dd'}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

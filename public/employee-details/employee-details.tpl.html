@@ -1,0 +1,67 @@
+<div class="employee-details-page container">
+    <div class="page-header">
+        <h1>Employee Details</h1>
+    </div>
+    <form novalidate name="employeeForm">
+        <div class="form-group" ng-class="{'has-error': employeeForm.firstName.$dirty && employeeForm.firstName.$invalid}">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" name="firstName"
+                   ng-model="employeeDetailsCtrl.employee.FIRST_NAME"
+                   required ng-maxlength="20">
+            <p ng-show="employeeForm.firstName.$dirty" ng-messages="employeeForm.firstName.$error" class="help-block">
+                <span ng-message="required">First Name is required.</span>
+                <span ng-message="maxlength">First Name must be less than 20 characters.</span>
+            </p>
+        </div>
+        <div class="form-group" ng-class="{'has-error': employeeForm.lastName.$dirty && employeeForm.lastName.$invalid}">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" name="lastName"
+                   ng-model="employeeDetailsCtrl.employee.LAST_NAME"
+                   required ng-maxlength="25">
+            <p ng-show="employeeForm.lastName.$dirty" ng-messages="employeeForm.lastName.$error" class="help-block">
+                <span ng-message="required">Last Name is required.</span>
+                <span ng-message="maxlength">Last Name must be less than 25 characters.</span>
+            </p>
+        </div>
+        <div class="form-group" ng-class="{'has-error': employeeForm.phoneNumber.$dirty && employeeForm.phoneNumber.$invalid}">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber"
+                   placeholder="123.123.1234"
+                   ng-model="employeeDetailsCtrl.employee.PHONE_NUMBER"
+                   required ng-pattern="/^[0-9]{3}.[0-9]{3}.[0-9]{4}$/">
+            <p ng-show="employeeForm.phoneNumber.$dirty" ng-messages="employeeForm.phoneNumber.$error" class="help-block">
+                <span ng-message="required">Phone Number is required.</span>
+                <span ng-message="pattern">Phone Number must use the following format: "123.123.1234".</span>
+            </p>
+        </div>
+        <div class="form-group" ng-class="{'has-error': employeeForm.hireDate.$dirty && employeeForm.hireDate.$invalid}">
+            <label for="hireDate">Hire Date</label>
+            <input type="date" class="form-control" id="hireDate" name="hireDate"
+                   required
+                   ng-model="employeeDetailsCtrl.employee.HIRE_DATE">
+            <p ng-show="employeeForm.hireDate.$dirty" ng-messages="employeeForm.hireDate.$error" class="help-block">
+                <span ng-message="required">Hire Date is required.</span>
+            </p>
+        </div>
+        <button type="submit" class="btn btn-default" ng-click="employeeDetailsCtrl.goToEmployees();">
+            <span class="glyphicon glyphicon-remove"></span> Cancel
+        </button>
+        <button type="submit" class="btn btn-primary pull-right"
+                ng-show="employeeDetailsCtrl.mode === 'edit'"
+                ng-disabled="employeeForm.$invalid"
+                ng-click="employeeDetailsCtrl.save();">
+            <span class="glyphicon glyphicon-ok"></span> Apply Changes
+        </button>
+        <button type="submit" class="btn btn-warning pull-right"
+                ng-show="employeeDetailsCtrl.mode === 'edit'"
+                ng-click="employeeDetailsCtrl.delete();">
+            <span class="glyphicon glyphicon-trash"></span> Delete
+        </button>
+        <button type="submit" class="btn btn-primary pull-right"
+                ng-show="employeeDetailsCtrl.mode === 'create'"
+                ng-disabled="employeeForm.$invalid"
+                ng-click="employeeDetailsCtrl.create();">
+            <span class="glyphicon glyphicon-ok"></span> Create
+        </button>
+    </form>
+</div>
